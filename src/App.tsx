@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { BrowserRouter, Routes, Route, Link, Navigate, useNavigate } from "react-router-dom";
+import { Sprig } from "./main";
 
 // --- Types ---
 export type User = {
@@ -51,15 +52,29 @@ function AuthProvider({ children }: { children: React.ReactNode }) {
     };
     localStorage.setItem("dw_user", JSON.stringify(fakeUser));
     setUser(fakeUser);
+
+    Sprig.setUserId(fakeUser.id);
+    Sprig.setEmail(fakeUser.email);
+    Sprig.setAttribute('name', fakeUser.name);
   };
 
   const logout = () => {
     localStorage.removeItem("dw_user");
     setUser(null);
+
+    Sprig.logoutUser();
   };
 
   const value = useMemo(() => ({ user, login, logout }), [user]);
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+}
+
+// Sprig event example
+function userClicksBookButton() {
+  Sprig.identifyAndTrack({
+    eventName: 'book_a_service',
+    userId: localStorage.getItem("dw_user") ? JSON.parse(localStorage.getItem("dw_user")!).id : 'guest',
+  });
 }
 
 // --- Booking storage helpers ---
@@ -390,7 +405,7 @@ function Book() {
           <label className="block text-sm mb-1">Notes</label>
           <textarea className="w-full border rounded-xl p-2" rows={3} placeholder="Gate code, special instructions…" value={notes} onChange={(e) => setNotes(e.target.value)} />
         </div>
-        <button disabled={saving} className="w-full px-4 py-2 rounded-xl bg-black text-white disabled:opacity-60">
+        <button disabled={saving} className="w-full px-4 py-2 rounded-xl bg-black text-white disabled:opacity-60" onClick={userClicksBookButton}>
           {saving ? "Saving…" : "Confirm booking"}
         </button>
       </form>
