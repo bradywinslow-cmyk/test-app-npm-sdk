@@ -5,8 +5,9 @@ import { Sprig } from "./main";
 // --- Types ---
 export type User = {
   id: string;
-  name: string;
   email: string;
+  firstName: string;
+  lastName: string;
 };
 
 export type Booking = {
@@ -24,7 +25,7 @@ export type Booking = {
 // --- Auth Context (very lightweight; swap for your real auth later) ---
 interface AuthContextValue {
   user: User | null;
-  login: (email: string, name: string) => void;
+  login: (email: string, firstName: string, lastName: string) => void;
   logout: () => void;
 }
 
@@ -44,10 +45,11 @@ function AuthProvider({ children }: { children: React.ReactNode }) {
     if (raw) setUser(JSON.parse(raw));
   }, []);
 
-  const login = (email: string, name: string) => {
+  const login = (email: string, firstName: string, lastName: string) => {
     const fakeUser: User = {
       id: crypto.randomUUID(),
-      name: name.trim() || email.split("@")[0],
+      firstName,
+      lastName,
       email,
     };
     localStorage.setItem("dw_user", JSON.stringify(fakeUser));
@@ -55,7 +57,12 @@ function AuthProvider({ children }: { children: React.ReactNode }) {
 
     Sprig.setUserId(fakeUser.id);
     Sprig.setEmail(fakeUser.email);
-    Sprig.setAttribute('name', fakeUser.name);
+    Sprig.setAttribute('firstName', fakeUser.firstName);
+    Sprig.setAttribute('lastName', fakeUser.lastName);
+
+    /* if (email.includes('testytester.com')) {
+      Sprig.setAttribute(sprig-dnc, true);
+    }*/
   };
 
   const logout = () => {
@@ -125,7 +132,7 @@ function NavBar() {
         <div className="flex items-center gap-3">
           {user ? (
             <>
-              <Link to="/profile" className="text-sm text-gray-700">{user.name}</Link>
+              <Link to="/profile" className="text-sm text-gray-700">{`${user.firstName} ${user.lastName}`}</Link>
               <button onClick={logout} className="px-3 py-1 rounded-full border hover:bg-gray-50 text-sm text-white">
                 Log out
               </button>
@@ -184,7 +191,7 @@ function Pricing() {
   return (
     <main className="max-w-3xl mx-auto p-6">
       <h2 className="text-2xl font-semibold mb-4">Pricing</h2>
-      <div className="border rounded-2xl overflow-hidden">
+      <div className="border rounded-2xl overflow-hidden mb-10">
         <table className="w-full text-left">
           <thead className="bg-gray-50">
             <tr>
@@ -202,6 +209,7 @@ function Pricing() {
           </tbody>
         </table>
       </div>
+      <iframe className="border rounded-2xl" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.037902013252!2d-122.40233402333462!3d37.789151511330594!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085816f4a6b2ae5%3A0x343a68ca27c52905!2s71%20Stevenson%20St%2C%20San%20Francisco%2C%20CA%2094105!5e0!3m2!1sen!2sus!4v1770758839617!5m2!1sen!2sus" width="600" height="450" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
     </main>
   );
 }
@@ -229,7 +237,8 @@ function Login() {
   const { user, login } = useAuth();
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
 
   useEffect(() => {
     if (user) navigate("/profile");
@@ -238,7 +247,7 @@ function Login() {
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return alert("Please enter your email.");
-    login(email, name);
+    login(email, firstName, lastName);
     navigate("/profile");
   };
 
@@ -247,12 +256,24 @@ function Login() {
       <h2 className="text-2xl font-semibold mb-4">Login</h2>
       <form onSubmit={onSubmit} className="space-y-3">
         <div>
-          <label className="block text-sm mb-1" htmlFor='name'>Name</label>
+          <label className="block text-sm mb-1" htmlFor='name'>First Name</label>
           <input
             className="w-full border rounded-xl p-2"
-            placeholder="Fido’s human"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            placeholder="First name"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            autoComplete="name"
+            name="name"
+            id="name"
+          />
+        </div>
+        <div>
+          <label className="block text-sm mb-1" htmlFor='name'>Last Name</label>
+          <input
+            className="w-full border rounded-xl p-2"
+            placeholder="Last name"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
             autoComplete="name"
             name="name"
             id="name"
@@ -294,7 +315,7 @@ function Profile() {
     <main className="max-w-3xl mx-auto p-6 space-y-6">
       <section className="border rounded-2xl p-6">
         <h2 className="text-2xl font-semibold mb-2">Your profile</h2>
-        <p><span className="text-gray-600">Name:</span> {user.name}</p>
+        <p><span className="text-gray-600">Name:</span> {`${user.firstName} ${user.lastName}`}</p>
         <p><span className="text-gray-600">Email:</span> {user.email}</p>
       </section>
 
