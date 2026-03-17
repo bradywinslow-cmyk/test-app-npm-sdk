@@ -6,7 +6,7 @@ import App from './App.tsx'
 import { sprig } from '@sprig-technologies/sprig-browser';
 
 export const Sprig = sprig.configure({
-  environmentId: import.meta.env.VITE_SPRIG_ID || 'your-default-dev-id',
+  environmentId: 'KNdk_fZsAYt0',
 })
 
 createRoot(document.getElementById('root')!).render(
