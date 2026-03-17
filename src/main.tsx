@@ -6,7 +6,7 @@ import App from './App.tsx'
 import { sprig } from '@sprig-technologies/sprig-browser';
 
 export const Sprig = sprig.configure({
-  environmentId: 'KNdk_fZsAYt0',
+  environmentId: window.location.host === 'localhost:5173' ? 'LLL0hxW9pJRs' : 'KNdk_fZsAYt0'
 })
 
 createRoot(document.getElementById('root')!).render(
