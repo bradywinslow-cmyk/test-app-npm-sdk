@@ -5,7 +5,7 @@ import App from './App.tsx'
 
 import { sprig } from '@sprig-technologies/sprig-browser';
 
-export const Sprig = sprig.configure({
+sprig.configure({
   environmentId: window.location.host === 'localhost:5173' ? 'LLL0hxW9pJRs' : 'KNdk_fZsAYt0'
 })
 
