@@ -1,0 +1,419 @@
+/* 
+This is the wonky CSS that is causing Twitch's surveys to constantly resize
+*/
+
+/*
+Base Typography
+Applied generally to every view
+*/
+html,
+body {
+  font-family: "Inter", "Roobert", "Helvetica Neue",
+  Helvetica, Arial, sans-serif;
+}
+
+/*
+Universal Elements
+Container element, footer, close button, and dots
+*/
+.ul-footer {
+  margin-top: 10px;
+}
+
+.ul-footer-bubble {
+  width: 7px;
+  height: 7px;
+  border-radius: 4px;
+}
+
+.ul-footer__link {
+  font-size: 10px;
+}
+
+.ul-app__close {
+  font-size: 30px;
+  color: #ADADB8;
+}
+
+.ul-deck {
+  background-color: #fff;
+  color: #333;
+}
+
+.close-btn {
+  border-radius: 900px;
+  background-color: #fff;
+}
+
+.ul-footer #ul-progress-bar-container {
+    background-color: rgba(173, 173, 184, 0.35) !important;
+}
+
+.sprig-question-body {
+    padding: 2px 20px;
+}
+
+/*
+Card Component
+Used as the containing element in every question
+*/
+.ul-card {
+  font-size: 17px;
+}
+
+.ul-card__container {
+  font-size: 17px;
+  background: #26262C;
+  color: #EFEFF1;
+  border:none;
+  /*box-shadow:0px 0px 8px rgba(0, 0, 0, 20%);*/
+}
+
+/*.ul-card__container--mobile {*/
+/*    max-width: 50%;*/
+/*    max-height: 50%;*/
+/*}*/
+
+@media (orientation: landscape) and (max-width: 932px) {
+    .ul-card__container, .ul-card__container--mobile {
+        /*Scale dynamically to 30% of the screen width */
+        /*width: 40% !important;*/
+        /*max-width: 450px !important; */
+        /*height: 100% !important;*/
+        
+        /*Anchor to the right side */
+        /*margin-top: 0 !important;*/
+        /*left: auto !important;*/
+        /*right: 0 !important;*/
+        /*top:0 !important;*/
+        
+        /* Optional: ensures the card doesn't look too squished on very small screens */
+        /*min-width: 320px !important;*/
+        width: 40% !important;
+        max-width: 450px !important;
+        height: 100% !important;
+        position: fixed !important;
+        margin-top: 0 !important;
+        left: auto !important;
+        right: 0 !important;
+        top: 0 !important;
+        min-width: 320px !important;
+    }
+}
+
+/*@media (orientation: landscape) {*/
+/*  .ul-card__container--mobile {*/
+/*    width: 30% !important;*/
+/*    max-width: 450px !important;*/
+/*    height: 100% !important;*/
+/*    margin-left: auto !important;*/
+/*    margin-right: auto !important;*/
+/*    left: auto !important;*/
+/*    right: 0 !important;*/
+/*    top: 0 !important;*/
+/*    min-width: 320px !important;*/
+/*  }*/
+/*}*/
+
+.ul-question {
+  color: #EFEFF1;
+  font-size: 20px;
+}
+
+.ul-caption {
+  color: #ADADB8;
+  font-size: 15px;
+}
+
+.ul-header {
+   border-bottom: 2px solid #0E0E10 !important;
+   background: repeating-linear-gradient(120deg,#53535F,#53535F 24px,#18181B 24px,#18181B 48px);
+ }
+
+.ul-rich-text-body p {
+    color: #EFEFF1;
+}
+
+.ul-rich-text-body a {
+    color: #A970FF !important;
+}
+
+.ul-rich-text-body ol li{
+  color: #ADADB8;
+  font-size: 15px;
+}
+
+.choice-label-container .select-checkbox, 
+.choice-label-container .select-radio {
+  border: 2px solid #ADADB8 !important;
+  box-shadow: none;
+}
+
+.ul-select-active-dynamic-style .choice-label-container .select-checkbox {
+  border: 2px solid #AA70FF !important;
+  background-color: #AA70FF !important;
+}
+
+.ul-select-active-dynamic-style .choice-label-container .select-radio
+{
+  border: 6px solid #AA70FF !important;
+}
+
+.choice-label-container {
+    color: #EFEFF1;
+}
+
+/*
+Choice Element
+Used in Multiple Choice and
+Multiple Choice Multi-Select Questions
+*/
+.choice {
+  color: #EFEFF1;
+  font-size: 13px;
+  border: none;
+  background-color: rgba(173, 173, 184, 0.35);
+}
+
+.choice .choice-text-input {
+    color: #EFEFF1;
+}
+
+.choice:hover {
+    background-color: rgba(173, 173, 184, 0.43);
+}
+
+.select-option {
+  color: #000000;
+}
+
+/*
+One to Five Scale (Likert) Question
+Applies only to one to five scale (likert) question types
+*/
+.ul-card--likert__numbers {
+  border:0;
+}
+
+.likert-number {
+  font-size: 15px;
+  border: none;
+  background-color: rgba(173, 173, 184, 0.35);
+  color: #EFEFF1;
+  border-radius: 4px; 
+  margin: 0 0 0 5px;
+}
+
+.likert-number:hover {
+    background-color: rgba(173, 173, 184, 0.43);
+    color: #EFEFF1 !important;
+}
+
+.likert-number:first-child {
+    margin-left: 0;
+}
+
+.ul-card--likert__labels {
+  color: #ADADB8;
+  font-size: 13px;
+  font-weight:400;
+}
+
+/*
+Multi-Select Question
+Applies only to multi-select question types
+*/
+.select-label {
+  padding-left: 10px;
+}
+
+/*
+NPS Question
+Applies only to NPS question types
+*/
+.ul-card--nps__numbers {
+  border-radius: 0;
+  border: none;
+}
+
+.nps-number {
+  font-size: 13px;
+  border: none;
+  background-color: rgba(173, 173, 184, 0.35);
+  color: #EFEFF1;
+  border-radius: 4px; 
+  margin: 0 0 0 2px;
+}
+
+.nps-number:first-child {
+    margin-left: 0;
+}
+
+.nps-number:hover {
+    background-color: rgba(173, 173, 184, 0.43);
+    color: #EFEFF1 !important;
+}
+
+.ul-card--nps__labels {
+  color: #262136;
+  font-size: 13px;
+}
+
+/*
+Open Text Card
+Applies only to open text card question types
+*/
+.ul-card-text__container {
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+
+.ul-card-text__input {
+  background-color: #18181B;
+  padding:12px;
+  border:2px solid #848494 !important;
+  color: #EFEFF1;
+  font-size: 14px;
+  border-radius:4px;
+}
+
+.ul-card-text__input::placeholder {
+  color: #ADADB8;
+}
+
+.ul-card-text__input:focus {
+  background-color: #18181B;
+  border:2px solid #AA70FF !important;
+  padding:10px;
+}
+
+.ul-consent-legal__name-input {
+    background-color: #18181B;
+    border: 2px solid #848494 !important;
+    color: #EFEFF1;
+}
+
+.ul-consent-legal__name-input::placeholder {
+    color:#ADADB8;
+}
+
+.ul-consent-legal__name-input:focus {
+    background-color: #18181B;
+    border: 2px solid #AA70FF !important;
+}
+
+.ul-card-text__button {
+  color: white !important;
+  font-size: 15px;
+  border-radius: 6px;
+  background-color: var(--theme) !important;
+  margin-bottom:10px;
+  width:100%;
+  text-align:center;
+}
+
+.ul-card-text__button:hover {
+  background-color: #782CE8 !important;
+}
+
+.ul-card-text__button:disabled {
+  font-size: 15px;
+  border-radius: 6px;
+  background-color: rgba(173, 173, 184, 0.35) !important;
+  color: #EFEFF1 !important;
+  opacity: 0.5;
+}
+
+.ul-button-inactive {
+  font-size: 15px;
+  border-radius: 6px;
+  background-color: rgba(173, 173, 184, 0.35) !important;
+  color: #EFEFF1 !important;
+}
+
+.ul-button-inactive:hover {
+  font-size: 15px;
+  border-radius: 6px;
+  background-color: rgba(173, 173, 184, 0.43) !important;
+  color: #EFEFF1 !important;
+}
+
+.ul-card-text__submit {
+  color: #4d4f37;
+}
+
+.ul-record-response-btn {
+    color: #EFEFF1 !important;
+    background-color: var(--theme) !important;
+    border:none !important;
+}
+
+.ul-record-response-btn:hover {
+    color: #EFEFF1 !important;
+    background-color: #782CE8 !important;
+    border:none !important;
+}
+
+.ul-back-question-btn {
+    color: #EFEFF1 !important;
+    background-color: rgba(173, 173, 184, 0.35) !important;
+    border:none !important;
+}
+
+.ul-back-question-btn:hover {
+    color: #EFEFF1 !important;
+    background-color: rgba(173, 173, 184, 0.43) !important;
+    border:none !important;
+}
+
+.ul-record-response-btn:before {
+    width:16px;
+    height:16px;
+    transform: translate(0px, -2px) !important;
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23EFEFF1' width='20px' height='20px' viewBox='0 0 20 20'%3E%3Cpath fill-rule='evenodd' d='M12.002 3.999a2 2 0 0 1 2 2v2L18 6v8l-3.998-2v2a2 2 0 0 1-2 1.999h-8a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h8zM12 6H4v8h8V6z' clip-rule='evenodd'%3E%3C/path%3E%3C/svg%3E") !important;
+}
+
+.ul-back-question-btn:before {
+    width:16px;
+    height:16px;
+    transform: translate(0px, -2px) !important;
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23EFEFF1' width='20px' height='20px' viewBox='0 0 20 20'%3E%3Cpath fill-rule='evenodd' d='M13.5 14.5L9 10L13.5 5.5L12 4L6 10L12 16L13.5 14.5Z' clip-rule='evenodd'%3E%3C/path%3E%3C/svg%3E") !important;
+}
+
+/*
+Text / URL Prompt
+*/
+.ul-card__text-url-prompt-body {
+  font-size: 14px;
+  color: #343442;
+}
+
+/*
+Thank You Card
+Applies only to the thank you card
+*/
+.ul-thanks-check {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.ul-card--thanks-content {
+  padding: 30px 0;
+}
+
+.ul-card--thanks .ul-question {
+  text-align: center;
+}
+
+.ul-card--thanks .ul-caption {
+  padding-top: 0;
+  text-align: center;
+}
+
+/*
+Matrix Card
+*/
+.ul-matrix-option-wrapper, .ul-matrix-row-label {
+  background: rgba(173, 173, 184, 0.35) !important;
+  color: #EFEFF1;
+}
