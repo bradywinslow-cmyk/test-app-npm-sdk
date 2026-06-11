@@ -5,7 +5,7 @@ import { bookingService, type Booking } from "../lib/bookingService";
 import { useExitIntent } from "../hooks/useExitIntent";
 
 export default function Book() {
-  const { user } = useAuth();
+  const { user, incrementBookingCount } = useAuth();
   const navigate = useNavigate();
 
   const [service, setService] = useState<Booking["service"]>("Walk");
@@ -32,8 +32,14 @@ export default function Book() {
     // 2. Track event in Sprig
     window.Sprig?.track('book_a_service', { 
       serviceType: service, 
-      petCount: pets 
+      petCount: pets
     });
+
+    window.Sprig?.track('seen-nps-survey');
+    window.Sprig?.track('became_member');
+
+    // 3. Update the bookedService attribute
+    incrementBookingCount();
 
     setSaving(false);
     alert(`Confirmed for ${booking.date}!`);

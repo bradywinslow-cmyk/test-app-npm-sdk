@@ -5,12 +5,14 @@ export type User = {
   email: string;
   firstName: string;
   lastName: string;
+  bookingCount: number;
 };
 
 interface AuthContextValue {
   user: User | null;
   login: (email: string, firstName: string, lastName: string) => void;
   logout: () => void;
+  incrementBookingCount: () => void;
 }
 
 const AuthContext = createContext<AuthContextValue | undefined>(undefined);
@@ -24,14 +26,41 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const login = (email: string, firstName: string, lastName: string) => {
-    const fakeUser: User = { id: crypto.randomUUID(), firstName, lastName, email };
+    const fakeUser: User = {
+      id: crypto.randomUUID(),
+      firstName,
+      lastName,
+      email,
+      bookingCount: 0
+    };
+    
     localStorage.setItem("dw_user", JSON.stringify(fakeUser));
     setUser(fakeUser);
 
     // Sprig Tracking
     window.Sprig?.setUserId(fakeUser.id);
     window.Sprig?.setEmail(fakeUser.email);
-    window.Sprig?.setAttribute('firstName', fakeUser.firstName);
+    window.Sprig?.setAttributes({
+      firstName: fakeUser.firstName,
+      total_bookings: 0
+    });
+  };
+
+  // Helper function to increment the count in state & storage
+  const incrementBookingCount = () => {
+    if (!user) return;
+
+    const updatedUser = {
+      ...user,
+      bookingCount: (user.bookingCount || 0) + 1
+    };
+
+    localStorage.setItem("dw_user", JSON.stringify(updatedUser));
+    setUser(updatedUser);
+
+    window.Sprig?.setAttributes({
+      total_bookings: updatedUser.bookingCount
+    })
   };
 
   const logout = () => {
@@ -40,7 +69,13 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     window.Sprig?.logoutUser();
   };
 
-  const value = useMemo(() => ({ user, login, logout }), [user]);
+  const value = useMemo(() => ({
+    user,
+    login,
+    logout,
+    incrementBookingCount
+  }), [user]);
+
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
 

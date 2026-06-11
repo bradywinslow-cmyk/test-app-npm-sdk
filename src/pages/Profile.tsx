@@ -1,9 +1,17 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { bookingService } from "../lib/bookingService";
 
 export default function Profile() {
   const { user } = useAuth();
+
+  // Trigger page view event on mount and send to Sprig
+  useEffect(() => {
+    if (user && window.Sprig) {
+      window.Sprig("track", "viewed_profile_page");
+    }
+  }, [user]);
   
   if (!user) return null; // Protected route usually handles this, but safe to keep.
 
