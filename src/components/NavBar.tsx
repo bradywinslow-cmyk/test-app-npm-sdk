@@ -15,6 +15,7 @@ export function NavBar() {
           <Link to="/services">Services</Link>
           <Link to="/pricing">Pricing</Link>
           <Link to="/testimonials">Testimonials</Link>
+          <Link to="/bonus_page">Bonus Page!!!</Link>
           <Link to="/book">Book</Link>
         </div>
         <div>
