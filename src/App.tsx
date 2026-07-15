@@ -3,6 +3,7 @@ import { AuthProvider } from "./context/AuthContext";
 import { NavBar } from "./components/NavBar";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import { trackPageViews } from "./hooks/pageViews";
+import { trackEventsFired } from "./hooks/eventsFired";
 
 import Home from "./pages/Home";
 import Services from "./pages/Services";
@@ -15,6 +16,7 @@ import BonusPage from "./pages/BonusPage";
 
 function AppLayout() {
   trackPageViews();
+  trackEventsFired();
 
   return (
     <div className="min-h-screen bg-white text-gray-900">
