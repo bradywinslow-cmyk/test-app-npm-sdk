@@ -1,0 +1,622 @@
+/*
+Base Typography
+Applied generally to every view
+*/
+html,
+body {
+   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif; 
+}
+
+b {
+   font-weight: 600; 
+}
+
+/*
+Universal Elements
+Footer, dots, and close button
+*/
+.ul-footer {
+  /* margin-top: 10px; */
+}
+
+.ul-footer-bubble {
+  /* width: 7px; */
+  /* height: 7px; */
+  /* border-radius: 3px; */
+}
+
+.close-container {
+  /* display: flex; */
+  /* justify-content: flex-end; */
+  /* width: 100%; */
+}
+
+.close-btn {
+  /* cursor: pointer; */
+  /* height: 18px; */
+  /* margin-inline-end: -10px; */
+  /* position: relative; */
+  /* top: -10px; */
+  /* width: 18px; */
+  /* z-index: 1; */
+}
+
+/*
+Card Component
+Used as the containing element in every question
+*/
+.ul-card {
+   border-radius: 2px; 
+  /* font-size: 17px; */
+  /* line-height: 19px; */
+}
+
+.ul-card__container--desktop {
+  /* padding: 20px 20px 5px 20px; */
+  /* margin: 15px; */
+  /* border: 2px solid #fff; */
+  /* box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15); */
+}
+
+.ul-card__container--mobile {
+  /* padding: 20px 20px 5px 20px; */
+  /* border-width: 0; */
+  /* box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25); */
+  /* margin-top: 5px; */
+}
+
+.ul-card__container {
+  /* background: #ffffff; */
+  /* font-size: 17px; */
+  /* line-height: 23px; */
+  /* border-radius: 6px; */
+}
+
+.ul-card-main-content {
+  /* padding: 0 20px 0 20px; */
+}
+
+.ul-question {
+  /* color: #343442; */
+   font-size: 18px; 
+  /* line-height: 125%; */
+   font-weight: 600;
+}
+
+.ul-caption {
+  /* margin-top: 8px; */
+  /* margin-bottom: 15px; */
+   font-size: 13px; 
+  /* line-height: 130.35%; */
+  /* letter-spacing: 0.02em; */
+  /* color: #6c6c6e; */
+}
+
+.ul-card-text__button {
+   border-radius: 14px; 
+  /* color: white; */
+  /* font-size: 15px; */
+  /* line-height: 18px; */
+  /* padding: 10.5px 21px; */
+   font-weight: 600; 
+  /* border: none; */
+  /* cursor: pointer; */
+}
+
+.ul-card-text__button:disabled {
+  /* background-color: rgba(100, 100, 100, 0.5); */
+  /* color: #ffffff; */
+}
+
+.ul-card__button-wrapper {
+  /* margin-top: 4px; */
+  /* margin-bottom: 3px; */
+  /* display: flex; */
+  /* justify-content: center; */
+}
+
+.ul-card-skip__button {
+  /* background-color: rgba(100, 100, 100, 0.5); */
+}
+
+/* Rich text */
+.ul-rich-text-body {
+  /* min-height: 2em; */
+}
+
+.ul-rich-text-body,
+.ul-rich-text-body p {
+  /* margin-top: 10px; */
+  /* margin-bottom: 10px; */
+}
+
+.ul-rich-text-body p,
+.ul-rich-text-body li {
+  /* font-size: 15px; */
+  /* line-height: 130.35%; */
+  /* letter-spacing: 0.02em; */
+  /* color: #343442; */
+  /* text-align: left; */
+  /* white-space: pre-line; */
+}
+
+.ul-rich-text-body:last-child,
+.ul-rich-text-body li:last-child {
+  /* margin-bottom: 15px; */
+}
+
+/*
+Choice Elements
+Used in Multiple Choice,
+Multiple Choice Multi-Select,
+and Matrix Questions
+*/
+.ul-card--multiple {
+}
+
+.ul-card__choices--desktop,
+.ul-card__choices--mobile {
+  /* margin: 5px 0 0 0; */
+}
+
+.ul-card__choices {
+  /* height: 100%; */
+}
+
+.choice--mobile {
+  /* border: 2px solid #e6e6e6; */
+}
+
+.choice--desktop {
+  /* border: 1px solid #e6e6e6; */
+}
+
+.choice--desktop,
+.choice--mobile {
+  /* margin-bottom: 7px; */
+  /* font-size: 15px; */
+  /* line-height: 20px; */
+  /* padding: 10px 20px 10px 15px; */
+  /* background-color: rgba(0, 0, 0, 0.01); */
+}
+
+.choice {
+  /* color: #262136; */
+  /* box-sizing: border-box; */
+  /* border-radius: 3px; */
+}
+
+.choice--desktop:hover {
+  /* background-color: rgba(0, 0, 0, 0.05); */
+}
+
+.choice--desktop:active,
+.choice--mobile:active {
+  /* background-color: rgba(0, 0, 0, 0.05); */
+}
+
+.select-label {
+  /* margin-left: 10px; */
+}
+
+.select-radio {
+  /* border: 1px solid rgb(225, 225, 225); */
+}
+
+/* For active radios */
+.ul-select-active-dynamic-style .select-radio  {
+  /* border: 1px solid #FFFFFF !important; */
+}
+
+/*
+Matrix Question
+Applies only to matrix question type
+*/
+
+.ul-card--matrix_grid {
+  /* row-gap: 4px */
+}
+
+.ul-card--matrix_container {
+  /* margin-bottom: 16px; */
+}
+
+.ul-matrix-column-label {
+  /* font-size: 15px; */
+  /* max-width: 150px; */
+}
+
+.ul-matrix-option-wrapper {
+  /* background: #f9f9f8; */
+}
+
+.ul-matrix-last-option {
+  /* border-start-end-radius: 4px; */
+  /* border-end-end-radius: 4px; */
+}
+
+.ul-matrix-row-label {
+  /* background: #f9f9f8; */
+  /* border-end-start-radius: 4px; */
+  /* border-start-start-radius: 4px; */
+  /* font-size: 15px; */
+  /* max-width: 200px; */
+}
+
+/*
+One to Five Scale (Likert) Question
+Applies only to one to five scale (likert) question type
+*/
+.ul-card--likert {
+}
+
+.ul-card--likert__numbers {
+  /* border-radius: 5px; */
+}
+
+.likert-number--mobile {
+  /* border: 2px solid #e6e6e6; */
+  /* margin-left: -2px; */
+}
+
+.likert-number--desktop {
+  /* border: 1px solid #e6e6e6; */
+  /* margin-left: -1px; */
+}
+
+.likert-number--desktop,
+.likert-number--mobile {
+  /* background-color: rgba(0, 0, 0, 0.01); */
+  /* font-size: 18px; */
+  /* line-height: 24px; */
+  /* height: 67px; */
+}
+
+.likert-number {
+}
+
+.likert-number--desktop:hover {
+  /* background-color: rgba(0, 0, 0, 0.05); */
+  /* font-weight: 600; */
+}
+
+.likert-number--desktop:active,
+.likert-number--mobile:active {
+  /* z-index: 2; */
+  /* background-color: rgba(0, 0, 0, 0.05); */
+  /* font-weight: 600; */
+}
+
+.ul-card--likert__labels {
+  /* color: #262136; */
+  /* font-weight: 600; */
+  /* font-size: 13px; */
+  /* line-height: 15px; */
+  /* margin: 7px 0 10px 0; */
+}
+
+/*
+NPS Question
+Applies only to NPS question type
+*/
+.ul-card--nps {
+}
+
+.ul-card--nps__numbers {
+  /* border-radius: 5px; */
+}
+
+.nps-number--mobile {
+  /* border: 2px solid #e6e6e6; */
+  /* margin-left: -2px; */
+}
+
+.nps-number--desktop {
+  /* border: 1px solid #e6e6e6; */
+  /* margin-left: -1px; */
+}
+
+.nps-number--desktop,
+.nps-number--mobile {
+  /* background-color: rgba(0, 0, 0, 0.01); */
+  /* font-size: 18px; */
+  /* line-height: 24px; */
+  /* height: 67px; */
+}
+
+.nps-number {
+}
+
+.nps-number--desktop:hover {
+  /* background-color: rgba(0, 0, 0, 0.05); */
+  /* font-weight: 600; */
+}
+
+.nps-number--desktop:active,
+.nps-number--mobile:active {
+  /* z-index: 2; */
+  /* background-color: rgba(0, 0, 0, 0.05); */
+  /* font-weight: 600; */
+}
+
+.ul-card--nps__labels {
+  /* color: #262136; */
+  /* font-weight: 600; */
+  /* font-size: 13px; */
+  /* line-height: 15px; */
+  /* margin: 7px 0 10px 0; */
+}
+
+/*
+Open Text Card
+Applies only to open text card question type
+*/
+.ul-card--text {
+}
+
+.ul-card-text {
+  /* margin-top: 2px; */
+  /* margin-bottom: 3px; */
+  /* padding: 0; */
+}
+
+.ul-card-text__container {
+  /* border-radius: 3px; */
+  /* margin-bottom: 12px; */
+}
+
+.ul-card-text__input--mobile {
+   border-radius: 6px; 
+  /* border: 2px solid #e6e6e6; */
+  /* max-height: 63px; */
+}
+
+.ul-card-text__input--desktop {
+   border-radius: 6px; 
+  /* border: 1px solid #e6e6e6; */
+  /* max-height: 150px; */
+}
+
+.ul-card-text__input--desktop,
+.ul-card-text__input--mobile {
+  /* font-size: 15px; */
+  /* line-height: 20px; */
+}
+
+.ul-card-text__input {
+  /* background: rgba(0, 0, 0, 0.01); */
+  /* color: #343442; */
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol'; */
+  /* min-height: 63px; */
+  /* padding: 12px; */
+  /* resize: none; */
+  /* width: 100%; */
+}
+
+.ul-card-text__input::placeholder {
+  /* color: rgba(108, 108, 110, 0.5); */
+}
+
+.ul-card-text__input:focus {
+  /* outline: none; */
+  /* background: white; */
+}
+
+.ul-card-text__input--desktop:hover:not(:focus) {
+  /* background-color: rgba(0, 0, 0, 0.05); */
+}
+
+/*
+Text / URL Prompt
+Applies only to Text / URL Prompt question type
+*/
+.ul-card__text-url-prompt {
+}
+
+.ul-card__text-url-prompt-button {
+  /* margin-right: auto; */
+  /* text-overflow: ellipsis; */
+  /* overflow: hidden; */
+  /* white-space: nowrap; */
+  /* max-width: 100%; */
+}
+
+/*
+Consent / Legal card
+Applies only to consent / legal question type
+*/
+.ul-consent-legal__name-input--mobile {
+  /* border: 2px solid #e6e6e6; */
+}
+
+.ul-consent-legal__name-input--desktop {
+  /* border: 1px solid #e6e6e6; */
+}
+
+.ul-consent-legal__name-input {
+  /* background: rgba(0, 0, 0, 0.01); */
+  /* box-sizing: border-box; */
+  /* color: #343442; */
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji',
+       'Segoe UI Emoji', 'Segoe UI Symbol'; */
+  /* padding: 10px 20px 10px 15px; */
+  /* border-radius: 3px; */
+  /* font-size: 15px; */
+  /* line-height: 20px; */
+  /* margin-bottom: 7px; */
+}
+
+.ul-consent-legal__name-input::placeholder {
+  /* color: rgba(108, 108, 110, 0.5); */
+}
+
+.ul-consent-legal__name-input:focus {
+  /* outline: none; */
+  /* background: white; */
+}
+
+.ul-consent-legal__name-input--desktop:hover:not(:focus) {
+  /* background-color: rgba(0, 0, 0, 0.05); */
+}
+
+.ul-card__consent-legal .choice {
+  /* font-size: 15px; */
+  /* padding: 10px 15px 10px 15px; */
+  /* background-color: rgba(0, 0, 0, 0.01); */
+}
+
+.ul-card__consent-legal .choice--desktop:hover {
+  /* background-color: rgba(0, 0, 0, 0.05); */
+}
+
+.ul-card__consent-legal .choice--desktop:active,
+.ul-card__consent-legal .choice--mobile:active {
+  /* background-color: rgba(0, 0, 0, 0.05); */
+}
+
+/*
+Rank Order
+Applies only to Rank Order question type
+*/
+.ul-card-rank__labels {
+  /* font-size: 14px; */
+  /* font-style: normal; */
+  /* font-weight: 600; */
+  /* line-height: 150%; */
+}
+
+.ul-card--rank__question-inner-container {
+  /* padding: 0 16px; */
+}
+
+.ul-card-rank__list {
+  /* list-style-type: none; */
+  /* padding-inline-start: 0; */
+  /* margin: 4px 0; */
+}
+
+.ul-card-rank__option {
+  /* display: flex; */
+  /* align-items: center; */
+  /* padding: 8px; */
+  /* gap: 8px; */
+  /* align-self: stretch; */
+  /* border: 1px solid #e2e3e1; */
+  /* border-radius: 8px; */
+  /* margin-bottom: 4px; */
+}
+
+.ul-card-rank__option:last-child {
+  /* margin-bottom: 0; */
+}
+
+.ul-card-rank__drag-btn {
+  /* display: inline-flex; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  /* line-height: 0; */
+  /* padding: 0; */
+  /* width: 25px; */
+  /* height: 25px; */
+  /* margin-left: auto; */
+  /* color: #0B2330; */
+  /* cursor: grab; */
+  /* background: transparent; */
+  /* border: 0; */
+}
+
+.ul-card-rank__drag-btn:active {
+  /* cursor: grabbing; */
+}
+
+.ul-card-rank__option:active {
+  /* cursor: grabbing; */
+}
+
+.ul-card-rank__option svg {
+  /* display: block; */
+}
+
+.ul-card-rank__option.is-dragging {
+  /* opacity: 1; */
+  /* box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15), 0 3px 10px rgba(0, 0, 0, 0.1); */
+  /* z-index: 1000; */
+  /* background: white; */
+  /* border-color: #0B2330; */
+}
+
+.ul-card-rank__option.is-drop-target {
+  /* background: rgba(11, 35, 48, 0.10); */
+  /* border-radius: 8px; */
+  /* border-color: rgba(11, 35, 48, 0.10); */
+}
+
+.ul-card-rank__option.is-drop-target select,
+.ul-card-rank__option.is-drop-target span,
+.ul-card-rank__option.is-drop-target button {
+  /* visibility: hidden; */
+}
+
+.ul-card-rank__option span {
+  /* font-size: 14px; */
+  /* font-weight: 400; */
+}
+
+.ul-card-rank__select {
+  /* appearance: none; */
+  /* -webkit-appearance: none; */
+  /* -moz-appearance: none; */
+  /* box-sizing: border-box; */
+  /* height: 25px; */
+  /* min-height: 25px; */
+  /* border: 1px solid #E2E3E1; */
+  /* border-radius: 4px; */
+  /* font-size: 14px; */
+  /* line-height: 1.4; */
+  /* padding: 2px 28px 2px 8px; */
+  /* background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='13' viewBox='0 0 12 13' fill='none'><path d='M9.75 5L6 8.75L2.25 5' stroke='%230B2330' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>"); */
+  /* background-repeat: no-repeat; */
+  /* background-position: right 8px center; */
+  /* background-size: 12px 12px; */
+  /* background-color: #FFF; */
+  /* cursor: pointer; */
+}
+
+.ul-card-rank__select.ul-card-rank__select--placeholder {
+  /* color: #B0B5B7; */
+}
+
+/*
+Thank You Card
+Applies only to the thank you card
+*/
+
+.ul-card--thanks {
+}
+
+.ul-thanks-check {
+  /* text-align: center; */
+  /* margin-bottom: 20px; */
+}
+
+.ul-card--thanks-content {
+  /* padding: 20px 0 10px 0; */
+}
+
+.ul-card--thanks .ul-question {
+  /* padding-top: 0; */
+  /* text-align: center; */
+}
+
+.ul-card--thanks .ul-caption {
+  /* padding-top: 0; */
+  /* text-align: center; */
+}
+
+.ul-card-text .footer {     
+    font-size: 9px;
+  /*line-height: 9px;*/
+   /* color: #bbb; */
+}

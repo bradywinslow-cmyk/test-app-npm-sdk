@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { bookingService, type Booking } from "../lib/bookingService";
-import { useExitIntent } from "../hooks/useExitIntent";
+// import { useExitIntent } from "../hooks/useExitIntent";
 
 export default function Book() {
   const { user, incrementBookingCount } = useAuth();
@@ -16,7 +16,7 @@ export default function Book() {
   const [notes, setNotes] = useState("");
   const [saving, setSaving] = useState(false);
 
-  useExitIntent('BOOKING_ABANDONED');
+  // useExitIntent('BOOKING_ABANDONED');
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -29,7 +29,7 @@ export default function Book() {
       userId: user.id, service, date, time, durationMins, pets, notes 
     });
 
-    // 2. Track event in Sprig
+    /* // 2. Track event in Sprig
     window.Sprig?.track('book_a_service', { 
       serviceType: service, 
       petCount: pets
@@ -37,6 +37,7 @@ export default function Book() {
 
     window.Sprig?.track('seen-nps-survey');
     window.Sprig?.track('became_member');
+    */
 
     // 3. Update the bookedService attribute
     incrementBookingCount();

@@ -1,11 +1,7 @@
-import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+// import { useEffect } from 'react';
+// import { useLocation } from 'react-router-dom';
 
-/**
- * @param eventName - The name of the Sprig event to track
- * @param active - Optional boolean to disable/enable the tracker
- */
-export function useExitIntent(eventName: string = 'EXIT_INTENT_TRACKED', active: boolean = true) {
+/* export function useExitIntent(eventName: string = 'EXIT_INTENT_TRACKED', active: boolean = true) {
   const location = useLocation();
 
   useEffect(() => {
@@ -50,3 +46,4 @@ export function useExitIntent(eventName: string = 'EXIT_INTENT_TRACKED', active:
     };
   }, [location.pathname, eventName, active]); 
 }
+*/

@@ -1,9 +1,10 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
+import { ThemeProvider } from "./context/ThemeContext";
 import { NavBar } from "./components/NavBar";
 import { ProtectedRoute } from "./components/ProtectedRoute";
-import { trackPageViews } from "./hooks/pageViews";
-import { trackEventsFired } from "./hooks/eventsFired";
+// import { trackPageViews } from "./hooks/pageViews";
+import { useSprigLifecycleEvents } from "./hooks/eventsFired";
 
 import Home from "./pages/Home";
 import Services from "./pages/Services";
@@ -15,11 +16,11 @@ import Profile from "./pages/Profile";
 import BonusPage from "./pages/BonusPage";
 
 function AppLayout() {
-  trackPageViews();
-  trackEventsFired();
+  // trackPageViews();
+  useSprigLifecycleEvents();
 
   return (
-    <div className="min-h-screen bg-white text-gray-900">
+    <div className="min-h-screen bg-white text-gray-900 dark:bg-neutral-900 dark:text-gray-100 transition-colors">
       <NavBar />
       <Routes>
         {/* Public Routes */}
@@ -58,9 +59,11 @@ function AppLayout() {
 export default function App() {
   return (
     <BrowserRouter>
-      <AuthProvider>
-        <AppLayout />
-      </AuthProvider>
+      <ThemeProvider>
+        <AuthProvider>
+          <AppLayout />
+        </AuthProvider>
+      </ThemeProvider>
     </BrowserRouter>
   );
 }

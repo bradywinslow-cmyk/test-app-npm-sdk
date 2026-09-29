@@ -1,4 +1,4 @@
-import { useExitIntent } from '../hooks/useExitIntent';
+// import { useExitIntent } from '../hooks/useExitIntent';
 
 const services = [
   { title: "Walk", desc: "30–60 min neighborhood walks to burn energy and sniff the roses." },
@@ -7,19 +7,20 @@ const services = [
 ];
 
 export default function Services() {
-    useExitIntent('SERVICES_EXIT_INTENT');
+    // useExitIntent('SERVICES_EXIT_INTENT');
+    // window.Sprig?.track('new_event_two');
 
     return (
         <main className="max-w-6xl mx-auto p-6">
         <h2 className="text-3xl font-semibold mb-8">Our Services</h2>
         <div className="grid md:grid-cols-3 gap-6">
             {services.map((s) => (
-            <div key={s.title} className="border rounded-2xl p-6 bg-white hover:shadow-sm transition-shadow">
+            <div key={s.title} className="border border-gray-200 dark:border-neutral-700 rounded-2xl p-6 bg-white dark:bg-neutral-800 hover:shadow-sm transition-shadow">
                 <div className="text-3xl mb-3">
                 {s.title === "Walk" ? "🐕" : s.title === "Drop-in" ? "🏠" : "🌙"}
                 </div>
                 <h3 className="font-semibold text-xl mb-2">{s.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{s.desc}</p>
+                <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{s.desc}</p>
             </div>
             ))}
         </div>

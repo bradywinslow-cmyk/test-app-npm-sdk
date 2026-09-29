@@ -1,4 +1,4 @@
-import { useExitIntent } from '../hooks/useExitIntent';
+// import { useExitIntent } from '../hooks/useExitIntent';
 
 const rates = [
   { service: "Walk (30 min)", price: "$20" },
@@ -8,26 +8,27 @@ const rates = [
 ];
 
 export default function Pricing() {
-    useExitIntent('PRICING_EXIT_INTENT');
+    // useExitIntent('PRICING_EXIT_INTENT');
+    // window.Sprig?.track('new_event_three');
 
     return (
         <main className="max-w-3xl mx-auto p-6">
         <h2 className="text-3xl font-semibold mb-6">Pricing & Coverage</h2>
         
         {/* Pricing Table */}
-        <div className="border rounded-2xl overflow-hidden mb-10 bg-white shadow-sm">
+        <div className="border border-gray-200 dark:border-neutral-700 rounded-2xl overflow-hidden mb-10 bg-white dark:bg-neutral-800 shadow-sm">
             <table className="w-full text-left">
-            <thead className="bg-gray-50 border-b">
+            <thead className="bg-gray-50 dark:bg-neutral-900 border-b border-gray-200 dark:border-neutral-700">
                 <tr>
-                <th className="p-4 font-semibold text-gray-700">Service</th>
-                <th className="p-4 font-semibold text-gray-700">Price</th>
+                <th className="p-4 font-semibold text-gray-700 dark:text-gray-300">Service</th>
+                <th className="p-4 font-semibold text-gray-700 dark:text-gray-300">Price</th>
                 </tr>
             </thead>
-            <tbody className="divide-y">
+            <tbody className="divide-y divide-gray-200 dark:divide-neutral-700">
                 {rates.map((r) => (
-                <tr key={r.service} className="hover:bg-gray-50/50 transition-colors">
-                    <td className="p-4 text-gray-800">{r.service}</td>
-                    <td className="p-4 font-medium text-black">{r.price}</td>
+                <tr key={r.service} className="hover:bg-gray-50/50 dark:hover:bg-neutral-700/50 transition-colors">
+                    <td className="p-4 text-gray-800 dark:text-gray-200">{r.service}</td>
+                    <td className="p-4 font-medium text-black dark:text-white">{r.price}</td>
                 </tr>
                 ))}
             </tbody>
@@ -37,8 +38,8 @@ export default function Pricing() {
         {/* Map Section */}
         <div className="space-y-4">
             <h3 className="text-xl font-medium">Our Service Area</h3>
-            <p className="text-sm text-gray-600">We currently serve the downtown and greater metro area.</p>
-            <div className="border rounded-2xl overflow-hidden shadow-inner bg-gray-100">
+            <p className="text-sm text-gray-600 dark:text-gray-400">We currently serve the downtown and greater metro area.</p>
+            <div className="border border-gray-200 dark:border-neutral-700 rounded-2xl overflow-hidden shadow-inner bg-gray-100 dark:bg-neutral-800">
             <iframe 
                 title="Service Area Map"
                 className="w-full h-[100]"

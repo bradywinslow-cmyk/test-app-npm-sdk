@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useEffect, useMemo, useState } from "react";
+import mixpanel from "mixpanel-browser";
 
 export type User = {
   id: string;
@@ -42,8 +43,17 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     window.Sprig?.setEmail(fakeUser.email);
     window.Sprig?.setAttributes({
       firstName: fakeUser.firstName,
-      total_bookings: 0
+      total_bookings: 0,
+      // animalType: "dog"
     });
+
+    // Mixpanel Tracking
+    mixpanel.identify(fakeUser.id);
+    mixpanel.people.set({
+      '$name': fakeUser.firstName,
+      '$email': fakeUser.email,
+      'total_bookings': 0
+    })
   };
 
   // Helper function to increment the count in state & storage
